@@ -1,0 +1,38 @@
+package com.gentech.io;
+
+import java.io.FileOutputStream;
+
+public class FileOutputStreamDemo {
+
+	public static void main(String[] args) {
+		writecontent();
+
+	}
+	private static void writecontent()
+	{
+		FileOutputStream fout=null;
+		try
+		{
+			fout=new FileOutputStream("C:\\Demo\\Test1.txt",true);
+			String str="There are Mangoes in the basket, and those";
+			str+="Mangoes are riped.";
+			byte b[]=str.getBytes();
+			fout.write(b);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			try
+			{
+				fout.close();
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+}
